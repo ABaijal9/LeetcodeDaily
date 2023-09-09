@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<vector<int>> ans;
     void solve(vector<int>& nums, vector<int>&v, int s){
-        ans.push_back(v); // above base case or it would forget soe cases
+        ans.push_back(v); // above base case or it would forget some cases
 //base case  
         if(s == nums.size()){
             return;
