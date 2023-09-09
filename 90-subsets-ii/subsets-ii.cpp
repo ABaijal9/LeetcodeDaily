@@ -16,12 +16,14 @@ public:
         //include
         v.push_back(nums[s]);
         solve(nums, v, s+1);
+        v.pop_back();
         return;
     }
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {
         vector<int> v;
         ans.push_back(v);
         solve(nums, v, 0);
+        sort(ans.begin(), ans.end());
         return ans;
     }
 };
