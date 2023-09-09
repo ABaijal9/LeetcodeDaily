@@ -12,9 +12,9 @@ public:
         //exclude krege
             solve(nums, v,  in+1 , n);
          //include krege
-            //if(find(v.begin(), v.end(), nums[in] ) == v.end()) 
             v.push_back(nums[in]);
             solve(nums, v, in+1 , n);
+            v.pop_back();
             
             return;
     }
