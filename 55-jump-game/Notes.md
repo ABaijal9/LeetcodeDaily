@@ -1,0 +1,1 @@
+<h2>jump-game Notes</h2><hr>last position (nums[i] + i .... i.e reach) should be more than or equal to n-1
