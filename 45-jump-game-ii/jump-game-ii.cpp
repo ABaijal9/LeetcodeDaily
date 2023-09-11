@@ -12,10 +12,10 @@ long long sol(vector<int>& nums, int n, int currpos, vector<int> &dp){
     long long least = INT_MAX;
     
     for(int i = 1 ; i <= nums[currpos]; i++){
-        if( i + currpos > n-1) break;
-      // if(nums[currpos+i] != 0){
-            least = min(least, 1+sol(nums, n, i + currpos , dp));
-      // }
+        if(i + currpos > n-1 ){
+            break;
+        }
+        least = min(least, 1+sol(nums, n, i + currpos , dp));
     }
     return dp[currpos] = least;
 }
