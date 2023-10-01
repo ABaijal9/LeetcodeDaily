@@ -4,9 +4,6 @@ double poww(double x, int n){
     // base case
     if(n == 0) return 1;
     // rec case
-    if(n == INT_MIN){
-        return 1 / (x * poww(x, -(n + 1)));
-    }
     double res = pow(x,n/2);
     res = res*res;
     if(n%2  == 0) return res;
