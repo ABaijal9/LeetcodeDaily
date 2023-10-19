@@ -1,33 +1,21 @@
 class Solution {
 public:
+
     bool isPalindrome(string s) {
-        int i = 0, j = s.size() - 1;
+        int n = s.size();
+        int i = 0;
+        int j = n-1;
 
-        while (i < j) {
-            while (i < j && !isalnum(s[i])) {
-                i++;
-            }
-
-            while (i < j && !isalnum(s[j])) {
-                j--;
-            }
-
-            // Change capital to small alphabet using isupper
-            if (isupper(s[i])) {
-                s[i] = tolower(s[i]);
-            }
-            if (isupper(s[j])) {
-                s[j] = tolower(s[j]);
-            }
-
-            if (s[i] != s[j]) {
-                return false;  // Characters do not match, not a valid palindrome
-            }
-
-            i++;
-            j--;
+        while(i < j){
+            while( !isalnum(s[i]) && i < j) i++;
+            while( !isalnum(s[j]) && i < j) j--;
+            if(s[i] >= 65 && s[i] <= 90) s[i] = s[i] + 32;
+            if(s[j] >= 65 && s[j] <= 90) s[j] = s[j] + 32;
+                    if(s[i] != s[j]) return false;  
+        i++;
+        j--;
         }
-
-        return true;  // All characters matched, it's a valid palindrome
+        return true;
     }
 };
+
