@@ -1,0 +1,2 @@
+# Write your MySQL query statement below
+select s.user_id , case when c.time_stamp is NULL THEN 0.00 ELSE ROUND(SUM(c.action = 'confirmed')/Count(*),2) END as confirmation_rate from Confirmations as c right join Signups as s on c.user_id = s.user_id GROUP BY s.user_id;
