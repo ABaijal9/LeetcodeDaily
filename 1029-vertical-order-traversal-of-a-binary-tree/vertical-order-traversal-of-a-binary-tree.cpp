@@ -18,7 +18,6 @@ public:
         vector<vector<int>> v;
         queue<pair<TreeNode*, pair<int,int>>> q;
         q.push({root,{0,0}});
-       // q.push({NULL,make_pair(0,0)});
 
         while(!q.empty()){
             auto f = q.front();
@@ -27,11 +26,6 @@ public:
             TreeNode* t = f.first;
             int col = f.second.first;
             int row = f.second.second;
-
-            // if(t == NULL){
-            //     if(!q.empty()) q.push({NULL,{0,0}});
-            // }
-            
                 mp[col][row].insert(t->val);
                 if(t->left){
                     pair<TreeNode*, pair<int,int>> p;
@@ -45,14 +39,11 @@ public:
                     p.second = make_pair(col+1,row+1);
                     q.push(p);
                 }
-          
         }
            for(auto& col : mp){
                vector<int> colval;
                for(auto& row : col.second){
-                   for(auto& val : row.second){
-                       colval.push_back(val);
-                   }
+                       colval.insert(colval.end(), row.second.begin(), row.second.end());
                }
                v.push_back(colval);
            }
