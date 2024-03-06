@@ -21,26 +21,15 @@ public:
                 extra.push_back(more[i]);
             }
         }
+        if(!extra.size()) return ans;
         j = 0;
         for(int i = 0 ; i < n; i++){
             if(ans[i] == -1){
                 ans[i] = extra[j++];
             }
+            if(j == extra.size()) break;
         }
 
         return ans;
     }
 };
-      //  vector<pair<int,bool>> matter(n);
-                  // matter[i].first = more[i];
-            // matter[i].second = false;
-
-  // if(matter[j].first > tracker[i].first){
-            //     ans[tracker[i].second] = matter[j].first;
-            //     matter[j++].second = true;
-            // }
-
-              // if(ans[t] != -1 && matter[j].second == false){
-            //     ans[t] = matter[j].first;
-            //     matter[j++].second == true;
-            // }
