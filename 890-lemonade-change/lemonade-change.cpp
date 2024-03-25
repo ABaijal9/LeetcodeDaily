@@ -8,15 +8,12 @@ public:
         for(auto charge: bills){
             if(charge != 5){
                 if(charge == 20){
-                    cout << cash[10] << " " << cash[5] << endl;
                     if(cash[10] < 1 and cash[5] < 3){ // 10 and 3 both not present
-                        cout << "1";
                         return false; }
                     else if(cash[10] < 1 and cash[5] >= 3){ // 10 not present and 3 present
                         cash[5] -= 3;
                     }
                     else if(cash[10] > 1 and cash[5] < 1){ // 10 present and 3 not present
-                        cout << "2";
                         return false;
                     }
                     else{ // both present
