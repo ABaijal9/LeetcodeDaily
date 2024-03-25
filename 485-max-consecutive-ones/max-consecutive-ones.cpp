@@ -4,8 +4,7 @@ public:
         int total_1 = 0;
         int maxo = 0;
         for(auto it: nums){
-            if(it == 0) total_1 = 0;
-            else total_1++;
+            total_1 = (total_1+it)*it;
             maxo = max( total_1, maxo);
         }
         return maxo;
