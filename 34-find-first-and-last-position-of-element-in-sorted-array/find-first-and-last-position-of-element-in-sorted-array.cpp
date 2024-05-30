@@ -2,8 +2,10 @@ class Solution {
 public:
 vector<int> ans = {-1,-1};
     vector<int> searchRange(vector<int>& nums, int target) {
+        int n = nums.size();
+        if( n == 0) return ans;
         int s = 0;
-        int e = nums.size()-1;
+        int e = n-1;
 
     while(s<=e){  // LB
         int mid = (s+e)/2;
@@ -16,7 +18,7 @@ vector<int> ans = {-1,-1};
     }
     if(ans[0] == -1) return ans;
     s = ans[0];
-    e = nums.size()-1;
+    e = n-1;
     while(s<=e){  //UB
         int mid = (s+e)/2;
         if(nums[mid] == target) {
