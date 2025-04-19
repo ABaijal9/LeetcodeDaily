@@ -1,13 +1,13 @@
 class Solution(object):
     def permute(self, nums):
-        n = len(nums)
         ans = []
-        def dfs(i):
-            if i == n:
-                ans.append(nums[:])
-            for t in range(i,n):
-                nums[i], nums[t] = nums[t], nums[i]
-                dfs(i+1)
-                nums[i], nums[t] = nums[t], nums[i]
-        dfs(0)
+        if len(nums) == 1:
+            return [nums[:]]
+        for i in range(len(nums)):
+            n = nums.pop(0)
+            perms = self.permute(nums)
+            for perm in perms:
+                perm.append(n)
+            ans.extend(perms)
+            nums.append(n)
         return ans
