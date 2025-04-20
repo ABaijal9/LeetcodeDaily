@@ -14,14 +14,13 @@ class Solution(object):
         def dfs(pos,com):
             #base
             if len(com) == len(digits):
-                ans.append(com)
+                ans.append("".join(com))
                 return
             #rec
             for i in dial[digits[pos]]:
-                dfs(pos+1,com+i)
-        
+                dfs(pos+1,com+[i])
 
-        dfs(0,"")
+        dfs(0,[])
         return ans
 
 
