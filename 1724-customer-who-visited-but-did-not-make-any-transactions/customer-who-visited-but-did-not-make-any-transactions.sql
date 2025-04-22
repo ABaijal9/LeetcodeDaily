@@ -1,7 +1,11 @@
-select customer_id, count(*) as count_no_trans  
-from Visits v
-where not exists (
-    select 1 from Transactions t
-    where t.visit_id = v.visit_id
-    )
-group by customer_id;
+SELECT 
+    v.customer_id, 
+    COUNT(*) AS count_no_trans  
+FROM 
+    Visits v 
+LEFT JOIN 
+    Transactions t ON v.visit_id = t.visit_id 
+WHERE 
+    t.transaction_id IS NULL 
+GROUP BY 
+    v.customer_id;
